@@ -29,3 +29,8 @@ patch -b date_district_num.csv date_district_num.csv.patch
 
 # Generate daily diff file
 perl ../diff.pl < date_district_num.csv > date_district_diff.csv
+
+# Generate patients and positive_by_developed
+cd ..
+perl parse_positive_by_developed.pl covid19/data/positive_by_developed.json > positive_developed.csv
+perl parse_data_patients_summary.pl covid19/data/data.json > patients.csv
