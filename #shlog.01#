@@ -1,0 +1,120 @@
+tokyo002[covid19-tokyo-data|22:54]% ls
+LICENSE.md                  covid19/                    history_of_patient_json.pl 
+README.ja.md                diff.pl                     parse_json_0.pl 
+README.md                   district-wise-patients/     parse_json_1.pl 
+commit_ids                  generate.sh*                shlog.00 
+tokyo002[covid19-tokyo-data|22:54]% cd district-wise-patients/
+tokyo002[district-wise-patients|22:57]% diff date_district_num.csv.orig date_district_num.csv > date_district_num.csv.patch
+tokyo002[district-wise-patients|22:58]% cd ..
+tokyo002[covid19-tokyo-data|22:59]% ./generate.sh 
+remote: Enumerating objects: 1399, done.        
+remote: Counting objects: 100% (1399/1399), done.        
+remote: Compressing objects: 100% (3/3), done.        
+remote: Total 2902 (delta 1397), reused 1397 (delta 1396), pack-reused 1503        
+Receiving objects: 100% (2902/2902), 6.76 MiB | 5.27 MiB/s, done.
+Resolving deltas: 100% (1398/1398), completed with 90 local objects.
+From https://github.com/tokyo-metropolitan-gov/covid19
+   86b3648d3d..4682ca4be5  development        -> origin/development
+   894bcf0119..0a4334f706  gh-pages           -> origin/gh-pages
+   68bd130c24..6331e05f3a  master             -> origin/master
+   5d3ca0bebf..c4450ee5d8  production         -> origin/production
+ + d7f357f318...c376936942 renovate/node-10.x -> origin/renovate/node-10.x  (forced update)
+   827eafef57..f392d8bbcc  staging            -> origin/staging
+ * [new tag]               v1.5.898           -> v1.5.898
+ * [new tag]               v1.5.899           -> v1.5.899
+Updating 86b3648d3d..4682ca4be5
+Fast-forward
+ data/consultation_about_fever.json            |     7 +-
+ data/daily_positive_detail.json               |    13 +-
+ data/data.json                                |    28 +-
+ data/monitoring_items.json                    |    16 +-
+ data/news.json                                |    12 +-
+ data/patient.json                             |   106 +-
+ data/positive_by_developed.json               |    44 +-
+ data/positive_by_diagnosed.json               |    32 +-
+ data/positive_status.json                     |     7 +-
+ data/tokyo_rule.json                          |     7 +-
+ static/data/130001_tokyo_covid19_patients.csv | 18020 +++++++++++++++++++++++---------------------
+ 11 files changed, 9637 insertions(+), 8655 deletions(-)
+patching file date_district_num.csv
+tokyo002[covid19-tokyo-data|22:59]% git push
+Everything up-to-date
+tokyo002[covid19-tokyo-data|DING!]% git commit -m "Correct 12/9 data"
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+	modified:   commit_ids
+	modified:   district-wise-patients/date_district_diff.csv
+	modified:   district-wise-patients/date_district_num.csv
+	modified:   district-wise-patients/date_district_num.csv.orig
+	modified:   district-wise-patients/date_district_num.csv.patch
+	modified:   district-wise-patients/date_district_num_1.csv
+
+Untracked files:
+	district-wise-patients/date_district_num.csv.patch.bak
+	district-wise-patients/json/patient.json.0272.4682ca4be56edab1d2c11ed4798d2ee48e240a79
+
+no changes added to commit
+tokyo002[covid19-tokyo-data|23:01]% git add .
+tokyo002[covid19-tokyo-data|23:02]% git commit -m "Correct 12/9 data"
+[master 84107fb] Correct 12/9 data
+ 8 files changed, 507 insertions(+), 3 deletions(-)
+ create mode 100644 district-wise-patients/date_district_num.csv.patch.bak
+ create mode 100644 district-wise-patients/json/patient.json.0272.4682ca4be56edab1d2c11ed4798d2ee48e240a79
+tokyo002[covid19-tokyo-data|23:02]% git push
+Counting objects: 11, done.
+Delta compression using up to 48 threads.
+Compressing objects: 100% (11/11), done.
+Writing objects: 100% (11/11), 3.34 KiB | 3.34 MiB/s, done.
+Total 11 (delta 8), reused 0 (delta 0)
+remote: Resolving deltas: 100% (8/8), completed with 7 local objects.        
+To github.com:mtoyoda/covid19-tokyo-data.git
+   7a786fb..84107fb  master -> master
+--------------------------------------------------------------------------------
+tokyo002[covid19-tokyo-data|15:18]% cd district-wise-patients/
+tokyo002[district-wise-patients|15:20]% diff date_district_num.csv.orig date_district_num.csv > date_district_num.csv.patch
+tokyo002[district-wise-patients|15:20]% cd ..
+tokyo002[covid19-tokyo-data|15:20]% git add .
+tokyo002[covid19-tokyo-data|15:21]% git commit -m "Correct 2020/12/31 and 2021/1/11 data"
+[master 0c282c2] Correct 2020/12/31 and 2021/1/11 data
+ 4 files changed, 48 insertions(+), 3 deletions(-)
+ create mode 120000 .#shlog.01
+ create mode 100644 district-wise-patients/date_district_num.csv.patch.bak2
+tokyo002[covid19-tokyo-data|15:21]% git del .#shlog.01
+git: 'del' is not a git command. See 'git --help'.
+
+The most similar commands are
+	bundle
+	help
+tokyo002[covid19-tokyo-data|15:21]% git rm .#shlog.01
+rm '.#shlog.01'
+tokyo002[covid19-tokyo-data|15:22]% git commit -m "rm .$shlog.01"
+shlog: Undefined variable.
+tokyo002[covid19-tokyo-data|15:22]% git commit -m "rm .#shlog.01"
+[master 04f1dca] rm .#shlog.01
+ 1 file changed, 1 deletion(-)
+ delete mode 120000 .#shlog.01
+tokyo002[covid19-tokyo-data|15:23]% git push
+Counting objects: 8, done.
+Delta compression using up to 48 threads.
+Compressing objects: 100% (7/7), done.
+Writing objects: 100% (8/8), 1.12 KiB | 1.12 MiB/s, done.
+Total 8 (delta 5), reused 0 (delta 0)
+remote: Resolving deltas: 100% (5/5), completed with 3 local objects.        
+To github.com:mtoyoda/covid19-tokyo-data.git
+   4c43254..04f1dca  master -> master
+tokyo002[covid19-tokyo-data|15:23]% cd district-wise-patients/
+tokyo002[district-wise-patients|15:45]% perl ../diff.pl < date_district_num.csv > date_district_diff.csv
+tokyo002[district-wise-patients|15:45]% cd ..
+tokyo002[covid19-tokyo-data|15:45]% git commit -m "manual update of the diff file"
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+	modified:   district-wise-patients/date_district_diff.csv
+
+no changes added to commit
+tokyo002[covid19-tokyo-data|15:45]% git push
+Everything up-to-date
+tokyo002[covid19-tokyo-data|15:45]% 
